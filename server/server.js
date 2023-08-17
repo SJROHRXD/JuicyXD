@@ -1,16 +1,31 @@
 const express = require('express');
-
+const connectDB = require('./connection');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 
 const PORT = process.env.PORT || 3005;
 
 const app = express();
 
-const db = require('./connection');
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.listen(PORT, () => {
-    console.log('Juicy Server 🍒 listening on port 3005!');
-});
+const startServer = async () => {
+    try {
+        await connectDB();
+
+        app.listen(PORT, () => {
+            console.log(`Juicy Server 🍒 listening on port ${PORT}!`);
+        });
+    } catch (err) {
+        console.error('Failed to connect to MongoDB', err);
+        process.exit(1); // failure code
+    }
+};
+
+startServer();
+// app.listen(PORT, () => {
+//     console.log(`Juicy Server 🍒 listening on port ${PORT}!`);

@@ -12,4 +12,7 @@ const juiceSchema = new Schema({
     }
 });
 
+// const Juice = mongoose.model('Juice', juiceSchema);
+// maybe later
+
 module.exports = juiceSchema;
