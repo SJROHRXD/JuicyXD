@@ -11,7 +11,6 @@ const DB_CLUSTER = process.env.DB_CLUSTER;
 const db = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_CLUSTER}/?retryWrites=true&w=majority`;
 
 console.log('DB_USER:', DB_USER);
-// console.log('db:', db);
 
 const connectDB = async () => {
     try {
