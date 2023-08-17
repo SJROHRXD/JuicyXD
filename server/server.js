@@ -21,11 +21,9 @@ const startServer = async () => {
             console.log(`Juicy Server 🍒 listening on port ${PORT}!`);
         });
     } catch (err) {
-        console.error('Failed to connect to MongoDB', err);
+        console.error(`Failed to Connect to MongoDB 😭`, err);
         process.exit(1); // failure code
     }
 };
 
 startServer();
-// app.listen(PORT, () => {
-//     console.log(`Juicy Server 🍒 listening on port ${PORT}!`);

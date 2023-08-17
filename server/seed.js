@@ -27,7 +27,7 @@ const seedDB = async () => {
     // Insert Juices
     await Juice.insertMany(juices);
 
-    console.log('DB Seeded!');
+    console.log(`DB Seeded! 🌱`);
     mongoose.connection.close();
 };
 
